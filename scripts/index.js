@@ -1,9 +1,5 @@
-import * as ttt from './utilities.js' 
-import * as helpers from './helpers.js'
-
-
-let board = ttt.initialState()
-let user = ttt.X
+let board = initialState()
+let user = X
 
 
 function displayBoard(board){
@@ -26,13 +22,13 @@ function displayBoard(board){
 function checkAndUpdateIfOver(board){
 
     setTimeout(()=> {
-    if (ttt.terminal(board)){
+    if (terminal(board)){
         document.querySelector('.game-options').style.display = 'none'
         document.querySelector('.game').style.display = 'none'
         document.querySelector('.over').style.display = 'block'
         
-        document.querySelector('h2').innerText = ttt.winner(board) ? 
-        `${ttt.winner(board)} has won the game` : 'Tie!'
+        document.querySelector('h2').innerText = winner(board) ? 
+        `${winner(board)} has won the game` : 'Tie!'
     }
    }, 500)
  
@@ -42,11 +38,11 @@ function checkAndUpdateIfOver(board){
 
 async function makeAIMoveThenUpdate(board) {
     document.querySelector('.turn-status').innerText = 'AI is thinking...'
-    const _ = await helpers.wait(1000)
-    board = ttt.result(board, ttt.minimax(board))
+    const _ = await wait(1000)
+    board = result(board, minimax(board))
     displayBoard(board)
-    if (!ttt.terminal(board)){
-        document.querySelector('.turn-status').innerText = `${ttt.player(board)} player turn!`
+    if (!terminal(board)){
+        document.querySelector('.turn-status').innerText = `${player(board)} player turn!`
     }
     
     checkAndUpdateIfOver(board)
@@ -64,8 +60,8 @@ document.addEventListener('click', async (event) => {
         document.querySelector('.over').style.display = 'none'
         user = event.target.dataset.player
         displayBoard(board)
-        if (ttt.player(board) === user) {
-            document.querySelector('.turn-status').innerText = `${ttt.player(board)} player turn!`
+        if (player(board) === user) {
+            document.querySelector('.turn-status').innerText = `${player(board)} player turn!`
         } else {
            board = await makeAIMoveThenUpdate(board)
         }
@@ -73,20 +69,20 @@ document.addEventListener('click', async (event) => {
 
     else if (event.target.nodeName == 'BUTTON' && event.target.id == 'try-again-btn') {
   
-        board = ttt.initialState()
+        board = initialState()
         document.querySelector('.game-options').style.display = 'block'
         document.querySelector('.game').style.display = 'none'
         document.querySelector('.over').style.display = 'none'
     }
     
-    else if (!ttt.terminal(board) && user === ttt.player(board) && event.target.nodeName == 'TD'){
+    else if (!terminal(board) && user === player(board) && event.target.nodeName == 'TD'){
         const j = event.target.dataset.column
         const i = event.target.parentNode.dataset.row
         if (! board[i][j]){
-            board = ttt.result(board, [i, j])
+            board = result(board, [i, j])
             displayBoard(board)
             checkAndUpdateIfOver(board)    
-            if (!ttt.terminal(board)){
+            if (!terminal(board)){
                board = await makeAIMoveThenUpdate(board)
             }
         

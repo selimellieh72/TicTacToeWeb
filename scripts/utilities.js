@@ -1,14 +1,14 @@
 
 // Declaring game variables
 
-export const X = 'X'
-export const O = 'O'
-export const EMPTY = null
+ const X = 'X'
+ const O = 'O'
+ const EMPTY = null
 
 /**
  * Returns starting state of the board.
  */
-export function initialState() {
+ function initialState() {
     return [
         [
             EMPTY, EMPTY, EMPTY
@@ -25,7 +25,7 @@ export function initialState() {
 /**
  * Returns player who has the next turn on a board.
  */
-export function player(board) {
+ function player(board) {
     let moves = 0
     for (var i = 0; i < 3; i++) {
         for (var j = 0; j < 3; j++) { 
@@ -43,7 +43,7 @@ export function player(board) {
  * Returns set of all possible actions [i, j] available on the board.
  */
 
-export function actions(board) {
+ function actions(board) {
     const possible_actions = new Set()
     for (var i = 0; i < 3; i++) {
         for (var j = 0; j < 3; j++) { 
@@ -56,7 +56,7 @@ export function actions(board) {
 /**
  * Returns the board that results from making move (i, j) on the board.
  */
-export function result(board, action){
+ function result(board, action){
 
     const [i, j] = action
     const new_board = structuredClone(board)
@@ -68,7 +68,7 @@ export function result(board, action){
 /**
  * Returns the winner of the game, if there is one.
  */
-export function winner(board){
+ function winner(board){
     for (var i = 0; i < 3; i++){
         // Handling Horizontal win
         if (board[i][0] && board[i][0] === board[i][1] && board[i][0] === board[i][2]){
@@ -95,7 +95,7 @@ export function winner(board){
  *  Returns true if game is over, false otherwise.
  */
 
-export function terminal(board) {
+ function terminal(board) {
     if (winner(board)){
         return true
     }
@@ -114,7 +114,7 @@ export function terminal(board) {
 /**
  * Returns 1 if X has won the game, -1 if O has won, 0 otherwise.
  */
-export function utility(board){
+ function utility(board){
     const scores = {
         X: 1,
         O: -1
@@ -127,7 +127,7 @@ export function utility(board){
 /**
  * Returns the optimal action for the current player on the board.
  */
-export function minimax(board){
+ function minimax(board){
 
     function maxvalue(state){
         if (terminal(state)) return [utility(state), null]
