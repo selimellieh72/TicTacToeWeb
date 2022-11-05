@@ -38,12 +38,12 @@ $ git clone https://github.com/selimellieh72/TikTacToeWeb/
 ## You may also like...
 
 - [Distancia](https://github.com/selimellieh72/Distantia-MERN) - Digitializing education
-- [Zoey](https://github.com/amitmerchant1990/correo) - Exchanging books
+- [Zoey](https://github.com/Ghaadyy/book-app-frontend) - Exchanging books
 
 
 ---
 
 > [selimellieh.com](https://www.selimellieh.com) &nbsp;&middot;&nbsp;
-> GitHub [@selimellieh72](https://github.com/Ghaadyy/book-app-frontend) &nbsp;&middot;&nbsp;
+> GitHub [@selimellieh72](https://github.com/selimellieh72) &nbsp;&middot;&nbsp;
 > Twitter [@selim_ellieh](https://twitter.com/selim_ellieh)
 
