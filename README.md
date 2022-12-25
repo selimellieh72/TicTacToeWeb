@@ -18,7 +18,7 @@
 
 ## About
 
-Based on the MiniMax algorithm, this website was made using HTML, CSS and vanilla Javascript. Play TicTacToe against an unbeatable AI whether you're a beginner or the most talented TicTacToe player! You can now play [online](https://selimellieh72.github.io/TikTacToeWeb/).
+Based on the MiniMax algorithm, this website was made using HTML, CSS and vanilla Javascript. Play TicTacToe against an unbeatable AI whether you're a beginner or the most talented TicTacToe player! You can now play [online](https://selimellieh72.github.io/TicTacToeWeb/).
 ## How To Use
 
 To clone and run this application, you'll need [Git](https://git-scm.com) installed on your computer. From your command line:
